@@ -2,18 +2,44 @@ package ss10_arraylist.thuc_hanh.bai1;
 
 public class MyListTest {
     public static void main(String[] args) {
-        MyList<Integer> listInteger = new MyList<Integer>();
-        listInteger.add(1);
-        listInteger.add(2);
-        listInteger.add(3);
-        listInteger.add(4);
-        listInteger.add(5);
+        class Student{
+            private int id;
+            private String name;
 
-        System.out.println("element 4: "+listInteger.get(4));
-        System.out.println("element 1: "+listInteger.get(1));
-        System.out.println("element 2: "+listInteger.get(2));
+            public Student() {
+            }
 
-        listInteger.get(-1);
-        System.out.println("element -1: " + listInteger.get(-1));
+            public Student(int id, String name) {
+                this.id = id;
+                this.name = name;
+            }
+
+            public int getId() {
+                return id;
+            }
+
+            public void setId(int id) {
+                this.id = id;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+        }
+        MyList<Student> myList=new MyList<>();
+        Student student1=new Student(1, "trung");
+        Student student2=new Student(2, "chánh");
+        Student student3=new Student(3, "hải");
+
+        myList.addFirst(student1);
+        for (int i=0;i<myList.size();i++){
+            Student student= (Student) myList.get(i);
+            System.out.println(student.getName());
+        }
     }
+
 }
